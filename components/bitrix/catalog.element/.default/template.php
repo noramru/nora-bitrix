@@ -747,13 +747,9 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						</div>
 					</div>
 					<div class="col-sm-12">
-<?
-	$x = CFile::GetPath($arResult['PROPERTIES']['PDF']["VALUE"][0]); // Путь к файлу. Ссылка.
-	$x = CFile::GetFileArray($arResult['PROPERTIES']['PDF']["VALUE"][0]); // Путь к файлу. Ссылка.
-?>
-						<pre><? print_r($x)."<hr>";?><?//=print_r($arResult['PROPERTIES']['PDF'],true)?></pre>
-	
-
+<!-- Редактирование -->
+<pre><?print_r(count($arResult['PROPERTIES']['PDF']['VALUE']));?></pre>
+<pre><?print_r($arResult['PROPERTIES']['PDF']['VALUE']);?></pre>
 					</div>
 				</div>
 			</div>
