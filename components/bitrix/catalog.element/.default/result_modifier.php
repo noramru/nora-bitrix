@@ -23,9 +23,9 @@ if ( $is_list > 0 ) { // Проверяем на наличие в PDF у кар
 		$arResult['PDF_LIST'][$i]['LINK'] = $arResult['PDF_LIST']['SSL'].$arResult['PDF_LIST']['SITE_SERVER_NAME'].CFile::GetPath($arResult['PDF_LIST'][$i]['ID']);
 		$arResult['PDF_LIST'][$i]['DESCRIPTION'] = $arResult['PROPERTIES']['PDF']['DESCRIPTION'][$i];
 
-		$arResult['PDF_LIST']['ITEMS'] = $arResult['PDF_LIST']['ITEMS'] . '<li>' . $pdf_icon . '<a href="' . $arResult["PDF_LIST"][$i]["LINK"] . '">' . $arResult['PDF_LIST'][$i]['DESCRIPTION'] . '</a></li>';
+		$arResult['PDF_LIST']['ITEMS'] = $arResult['PDF_LIST']['ITEMS'] . '<li>' . $pdf_icon . '<a href="' . $arResult["PDF_LIST"][$i]["LINK"] . '" target="_blank" download="' . $arResult['PDF_LIST'][$i]['DESCRIPTION'] . ' - ' . $arResult['NAME'] . '">' . $arResult['PDF_LIST'][$i]['DESCRIPTION'] . '</a></li>';
 	}
-	$arResult['PDF_LIST']['ITEMS'] = '<ul class="psd_listing">' . $arResult['PDF_LIST']['ITEMS'] . '</ul>';
+	$arResult['PDF_LIST']['ITEMS'] = '<h5>' . $arResult['PDF_LIST']['TITLE'] . '</h5><ul class="psd_listing">' . $arResult['PDF_LIST']['ITEMS'] . '</ul>';
 }else{
 	$arResult['PDF_LIST'] = NULL;
 }

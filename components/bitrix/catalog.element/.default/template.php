@@ -748,7 +748,8 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					</div>
 					<div class="col-sm-12">
 <!-- Редактирование -->
-<pre><?=$arResult['PDF_LIST']['ITEMS']?></pre>
+<!-- <pre><? //print_r($arResult['NAME']);?></pre> -->
+	 <?=$arResult['PDF_LIST']['ITEMS'];?>
 					</div>
 				</div>
 			</div>
