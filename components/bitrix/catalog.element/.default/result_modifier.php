@@ -8,7 +8,9 @@
 $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
 
-// Записываем массив
+/*
+	Выводим PDF для скачивания
+ */
 $is_list = count($arResult['PROPERTIES']['PDF']['VALUE'] );
 if ( $is_list > 0 ) { // Проверяем на наличие в PDF у карточки.
 	
@@ -30,10 +32,7 @@ if ( $is_list > 0 ) { // Проверяем на наличие в PDF у кар
 	$arResult['PDF_LIST'] = NULL;
 }
 
-// ['PROPERTIES']['PDF']['VALUE'][0]
-// $arResult['PROPERTIES']['PDF']['VALUE']; // Тут все данные.
-	// $arResult['PDF_LIST']['ID'] = $arResult['PROPERTIES']['PDF']['VALUE'][0];
-	// $arResult['PDF_LIST']['LINK'] = CFile::GetPath($arResult['PDF_LIST']['ID']);
 
-// $arResult['PDF_LIST']['NAME'] = CFile::GetFileArray($arResult['PDF_LIST']['ID']);
-	// $arResult['PDF_LIST']['NAME'] = count( $arResult['PROPERTIES']['PDF']['VALUE'] );
+/*
+	Корректировки слайдера
+ */

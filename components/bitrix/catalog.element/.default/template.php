@@ -303,6 +303,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					<div class="col-sm-6">
 						<div class="product-item-detail-info-section">
 							<?
+//	Вывод цвета
 							foreach ($arParams['PRODUCT_INFO_BLOCK_ORDER'] as $blockName)
 							{
 								switch ($blockName)
@@ -747,9 +748,8 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						</div>
 					</div>
 					<div class="col-sm-12">
-<!-- Редактирование -->
-<!-- <pre><? //print_r($arResult['NAME']);?></pre> -->
-	 <?=$arResult['PDF_LIST']['ITEMS'];?>
+						<?=$arResult['PDF_LIST']['ITEMS'];?>
+						<?//print_r($skuProperty);?>
 					</div>
 				</div>
 			</div>
