@@ -34,5 +34,8 @@ if ( $is_list > 0 ) { // Проверяем на наличие в PDF у кар
 
 
 /*
-	Корректировки слайдера
+	Дополняем содержимое галереи схемой и комплектацией.
+	Нужен заголовок и картинка.
  */
+$arResult['PRODUCT_IMG']['SCHEMA'] = $arResult['PROPERTIES']['PRODUCT_SCHEMA'];
+$arResult['PRODUCT_IMG']['PACK'] = $arResult['PROPERTIES']['PRODUCT_PACK'];
