@@ -8,10 +8,10 @@
 */
 
 /* Slider */
-.bx-yellow .product-item-image-slider-progress-bar { background-color: #f9a91d;}
+.bx-yellow .product-item-image-slider-progress-bar { background-color: #F37021;}
 .bx-yellow .product-item-image-slider-control:hover{ background-color: rgba(249,169,29,.8);}
 .bx-yellow .product-item-image-slider-control.active,
-.bx-yellow .product-item-image-slider-control:hover{ background-color: #f9a91d;}
+.bx-yellow .product-item-image-slider-control:hover{ background-color: #F37021;}
 
 /* SCU */
 .bx-yellow .product-item-scu-item-text-block:hover,

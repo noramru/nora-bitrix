@@ -22,6 +22,28 @@ else
 
 if ($isFilter || $isSidebar): ?>
 	<div class="col-md-3 col-sm-4 col-md-3<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '')?>">
+		<div class="bx-sidebar-block">
+<?$APPLICATION->IncludeComponent("bitrix:menu", "catalog_horizontal", array(
+	"ROOT_MENU_TYPE" => "left",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "36000000",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_THEME" => "site",
+		"CACHE_SELECTED_ITEMS" => "N",
+		"MENU_CACHE_GET_VARS" => "",
+		"MAX_LEVEL" => "3",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "Y",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"COMPONENT_TEMPLATE" => "catalog_horizontal"
+	),
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "Y"
+	)
+);?>
+		</div>
 		<? if ($isFilter): ?>
 			<div class="bx-sidebar-block">
 				<?
@@ -75,29 +97,7 @@ if ($isFilter || $isSidebar): ?>
 				);
 				?>
 			</div>
-		<?endif?>
-		<div class="bx-sidebar-block">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "catalog_horizontal", array(
-	"ROOT_MENU_TYPE" => "left",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "36000000",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_THEME" => "site",
-		"CACHE_SELECTED_ITEMS" => "N",
-		"MENU_CACHE_GET_VARS" => "",
-		"MAX_LEVEL" => "3",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N",
-		"COMPONENT_TEMPLATE" => "catalog_horizontal"
-	),
-	false,
-	array(
-	"ACTIVE_COMPONENT" => "Y"
-	)
-);?>
-		</div>
+		<?endif?>		
 	</div>
 <?endif?>
 <div class="<?=(($isFilter || $isSidebar) ? "col-md-9 col-sm-4 col-md-9" : "col-xs-12")?>">

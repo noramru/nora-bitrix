@@ -11,16 +11,16 @@ body.bx-background-gradient{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfaf5', endColorstr='#ffffff',GradientType=0 );
 	background-attachment: fixed;
 }
-.bx-logo-text small {color: #F9A91D;}
+.bx-logo-text small {color: #F37021;}
 
 /* news.list.sidebar */
 body.bx-theme-yellow .bx-s-info-titleicon{background: #e6a323;}
 
 /*ABOUT*/
-a.bxd-block:hover {border-color: #F9A91D;}
-.bxd-icon {border: 1px solid #F9A91D;}
-a.bxd-block:hover .bxd-icon {background: #F9A91D;}
-.bxd-icon .fa {color: #F9A91D;}
+a.bxd-block:hover {border-color: #F37021;}
+.bxd-icon {border: 1px solid #F37021;}
+a.bxd-block:hover .bxd-icon {background: #F37021;}
+.bxd-icon .fa {color: #F37021;}
 a.bxd-block:hover .bxd-icon .fa {color: #fff;}
 
 /* BTN */
