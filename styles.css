@@ -200,3 +200,20 @@ tabsection,
 }
 .full_text {margin-top: 35px;}
 .full_text section {width: auto!important;}
+
+/* Иконки над контентом */
+/*.blocks_4 div div div {
+	padding: 0px;
+}
+.blocks_4 {margin-bottom: 15px;}
+.blocks_4 div div div a img {
+	padding-right: 5px;
+}
+.blocks_4 div div div a {
+	color: #f37021;
+}*/
+
+.alfa {
+	display: inline-block;
+	margin-right: 5%;
+}

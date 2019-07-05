@@ -157,6 +157,11 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 	}
 }
 ?>
+<div class="blocks_4">
+<?$APPLICATION->IncludeComponent("bitrix:main.include", "",Array(
+		"AREA_FILE_SHOW" => "file",
+		"PATH" => SITE_DIR."include/before_content.php"), false);?>
+</div>
 <div class="bx-catalog-element bx-<?=$arParams['TEMPLATE_THEME']?>" id="<?=$itemIds['ID']?>"
 	itemscope itemtype="http://schema.org/Product">
 	<div class="container-fluid">
@@ -296,7 +301,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						}
 					}
 					?>
-				<pre>
+	
 					<?//=print_r($arResult['PRODUCT_IMG'])?>
 					<?
         // Add2Basket(
@@ -348,7 +353,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 
 					?>
 					<?//=print_r($arResult['OFFERS'][1])?>
-				</pre>
+
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
