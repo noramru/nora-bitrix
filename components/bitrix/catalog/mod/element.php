@@ -30,7 +30,25 @@ else
 $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEBAR_PATH']));
 ?>
 <div class='row'>
-	<div class='<?=($isSidebar ? 'col-md-9 col-sm-8' : 'col-xs-12')?>'>
+	<? if ($isSidebar): ?>
+		<div class='col-md-3 col-sm-4'>
+			<?
+			$APPLICATION->IncludeComponent(
+				'bitrix:main.include',
+				'',
+				array(
+					'AREA_FILE_SHOW' => 'file',
+					'PATH' => $arParams['SIDEBAR_PATH'],
+					'AREA_FILE_RECURSIVE' => 'N',
+					'EDIT_MODE' => 'html',
+				),
+				false,
+				array('HIDE_ICONS' => 'Y')
+			);
+			?>
+		</div>
+	<? endif ?>
+	<div class='<?=($isSidebar ? 'col-md-9 col-sm-8 oxy' : 'col-xs-12')?>'>
 		<?
 		if ($arParams["USE_COMPARE"] === "Y")
 		{
@@ -677,22 +695,4 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 		}
 		?>
 	</div>
-	<? if ($isSidebar): ?>
-		<div class='col-md-3 col-sm-4'>
-			<?
-			$APPLICATION->IncludeComponent(
-				'bitrix:main.include',
-				'',
-				array(
-					'AREA_FILE_SHOW' => 'file',
-					'PATH' => $arParams['SIDEBAR_PATH'],
-					'AREA_FILE_RECURSIVE' => 'N',
-					'EDIT_MODE' => 'html',
-				),
-				false,
-				array('HIDE_ICONS' => 'Y')
-			);
-			?>
-		</div>
-	<? endif ?>
 </div>

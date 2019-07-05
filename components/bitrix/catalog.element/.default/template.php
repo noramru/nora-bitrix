@@ -296,6 +296,59 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						}
 					}
 					?>
+				<pre>
+					<?//=print_r($arResult['PRODUCT_IMG'])?>
+					<?
+        // Add2Basket(
+        //         12,
+        //         4,
+        //         array(),
+        //         array(
+        //                 array("NAME" => "Цвет", "CODE" => "COLOR_REF", "VALUE" => "Коричневый")
+        //             )
+        //     );
+
+// if (CModule::IncludeModule("sale"))
+// {
+//   $arFields = array(
+//     "PRODUCT_ID" => 12,
+//     "PRODUCT_PRICE_ID" => 0,
+//     "PRICE" => 350.00,
+//     "CURRENCY" => "RUB",
+//     "WEIGHT" => 530,
+//     "QUANTITY" => 1,
+//     "LID" => LANG,
+//     "DELAY" => "N",
+//     "CAN_BUY" => "Y",
+//     "NAME" => "Доводчик дверной 2S", //Имя передавать в таком виде, цвет характеристикой
+//     "CALLBACK_FUNC" => "MyBasketCallback",
+//     "MODULE" => "my_module",
+//     "NOTES" => "",
+//     "ORDER_CALLBACK_FUNC" => "MyBasketOrderCallback",
+//     "DETAIL_PAGE_URL" => "/".LANG."/detail.php?ID=12" // Не корректный пусть
+//   );
+
+//   $arProps = array();
+
+//   $arProps[] = array(
+//     "NAME" => "Цвет",
+//     "CODE" => "COLOR_REF",
+//     "VALUE" => "Коричневый"
+//   );
+
+//   // $arProps[] = array(
+//   //   "NAME" => "Размер",
+//   //   "VALUE" => "1.5 x 2.5"
+//   // );
+
+//   $arFields["PROPS"] = $arProps;
+
+//   CSaleBasket::Add($arFields);
+// }
+
+					?>
+					<?//=print_r($arResult['OFFERS'][1])?>
+				</pre>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
@@ -312,6 +365,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 										if ($haveOffers && !empty($arResult['OFFERS_PROP']))
 										{
 											?>
+
 											<div id="<?=$itemIds['TREE_ID']?>">
 												<?
 												foreach ($arResult['SKU_PROPS'] as $skuProperty)
@@ -326,8 +380,9 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 														'VALUES' => $skuProperty['VALUES'],
 														'VALUES_COUNT' => $skuProperty['VALUES_COUNT']
 													);
+													$block_class = mb_strtolower( print_r($skuProperty['SHOW_MODE'], true) );
 													?>
-													<div class="product-item-detail-info-container" data-entity="sku-line-block">
+													<div class="product-item-detail-info-container position_and_style_<?=$block_class?>" data-entity="sku-line-block">
 														<div class="product-item-detail-info-container-title"><?=htmlspecialcharsEx($skuProperty['NAME'])?></div>
 														<div class="product-item-scu-container">
 															<div class="product-item-scu-block">
@@ -748,7 +803,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						</div>
 					</div>
 					<div class="col-sm-12">
-						<?=$arResult['PDF_LIST']['ITEMS'];?>
+						<?//=$arResult['PDF_LIST']['ITEMS']?>
 						<?//print_r($skuProperty);?>
 					</div>
 				</div>
