@@ -43,61 +43,7 @@ if ($isFilter || $isSidebar): ?>
 	"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
-		</div>
-		<? if ($isFilter): ?>
-			<div class="bx-sidebar-block">
-				<?
-				$APPLICATION->IncludeComponent(
-					"bitrix:catalog.smart.filter",
-					"",
-					array(
-						"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-						"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-						"SECTION_ID" => $arCurSection['ID'],
-						"FILTER_NAME" => $arParams["FILTER_NAME"],
-						"PRICE_CODE" => $arParams["~PRICE_CODE"],
-						"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-						"CACHE_TIME" => $arParams["CACHE_TIME"],
-						"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-						"SAVE_IN_SESSION" => "N",
-						"FILTER_VIEW_MODE" => $arParams["FILTER_VIEW_MODE"],
-						"XML_EXPORT" => "N",
-						"SECTION_TITLE" => "NAME",
-						"SECTION_DESCRIPTION" => "DESCRIPTION",
-						'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-						"TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
-						'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
-						'CURRENCY_ID' => $arParams['CURRENCY_ID'],
-						"SEF_MODE" => $arParams["SEF_MODE"],
-						"SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-						"SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
-						"PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
-						"INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
-					),
-					$component,
-					array('HIDE_ICONS' => 'Y')
-				);
-				?>
-			</div>
-		<? endif ?>
-		<? if ($isSidebar): ?>
-			<div class="hidden-xs">
-				<?
-				$APPLICATION->IncludeComponent(
-					"bitrix:main.include",
-					"",
-					Array(
-						"AREA_FILE_SHOW" => "file",
-						"PATH" => $arParams["SIDEBAR_PATH"],
-						"AREA_FILE_RECURSIVE" => "N",
-						"EDIT_MODE" => "html",
-					),
-					false,
-					array('HIDE_ICONS' => 'Y')
-				);
-				?>
-			</div>
-		<?endif?>		
+		</div>	
 	</div>
 <?endif?>
 <div class="<?=(($isFilter || $isSidebar) ? "col-md-9 col-sm-4 col-md-9" : "col-xs-12")?>">
@@ -532,10 +478,29 @@ if ($isFilter || $isSidebar): ?>
 					<?
 					/*
 					Выводим полное описание
+						и добиваем текстом про опт
 					 */	
-						$section_props = CIBlockSection::GetList(array(), array('IBLOCK_ID' => 2, 'ID' => $arResult ['ID']), true, array("UF_FULL_TEXT"));
+						$section_props = CIBlockSection::GetList(array(), array('IBLOCK_ID' => 2, 'ID' => $arCurSection ['ID']), true, array("UF_FULL_TEXT"));
 						$props_array = $section_props->GetNext();
-						echo '<div class="col-xs-12 full_text">' . $props_array['~UF_FULL_TEXT'] . '</div>';
+
+						$section_epigraf = CIBlockSection::GetList(array(), array('IBLOCK_ID' => 2, 'ID' => $arCurSection ['ID']), true, array("UF_PLURAL_WHAT", "UF_PLURAL_WHICH"));
+						$epigraf_array = $section_epigraf->GetNext();
+
+						$plural_what = strtolower($epigraf_array['UF_PLURAL_WHAT']);
+						$plural_which = strtolower($epigraf_array['UF_PLURAL_WHICH']);
+
+						//	Вывести позже в параметры
+						if (!$plural_what) 
+							$plural_what = "наши товары";
+						if (!$plural_which) 
+							$plural_which = "товаров НОРА-М";
+
+						$categories_epilog = '<h4>Оптовая доставка %s по регионам России и странам СНГ</h4>
+							<p>Купить %s оптом с доставкой по всей территории РФ, включая города: Новосибирск, Екатеринбург, Нижний Новгород, Казань, Челябинск, Омск, Самара, Ростов-на-Дону, Уфа, Красноярск, Пермь, Волгоград, Краснодар, Саратов, Тюмень, Барнаул, Ульяновск, Хабаровск, Владивосток, Кемерово, Астрахань, Пенза, Киров, Чебоксары, Калининград, Чита, Симферополь. Услуги транспортной компанией оплачиваются заказчиком, если иное не оговорено условиями договора. Возможен самовывоз с нашего склада в Москве.</p>
+							<p>Также возможна бесплатная доставка %s по ряду направлений – Тула, Калуга, Рязань, Тверь. Полный список городов с бесплатной доставкой уточняйте у наших менеджеров.</p>';
+						$categories_epilog_current = sprintf($categories_epilog, $plural_which, $plural_what, $plural_which);
+
+						echo '<div class="col-xs-12 full_text">' . $props_array['~UF_FULL_TEXT'] . $categories_epilog_current . '</div>';
 					?>
 					<?
 				}
