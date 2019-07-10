@@ -827,3 +827,5 @@ a.bxd-block:hover {}
 .blocks_4 div div div a {
 	color: #f37021;
 }
+.fa.fa-file-pdf-o.size {font-size: 1vw;}
+.pdf_listing {list-style: none;padding-left: 20px;}

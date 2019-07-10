@@ -165,6 +165,13 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 <div class="bx-catalog-element bx-<?=$arParams['TEMPLATE_THEME']?>" id="<?=$itemIds['ID']?>"
 	itemscope itemtype="http://schema.org/Product">
 	<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1 class="bx-title"><?=$name?></h1>
+				</div>
+			</div>	
+
+
 		<?
 		if ($arParams['DISPLAY_NAME'] === 'Y')
 		{
@@ -808,7 +815,9 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						</div>
 					</div>
 					<div class="col-sm-12">
-						<?//=$arResult['PDF_LIST']['ITEMS']?>
+						<?//$arResult['PDF_LIST']['ITEMS']?>
+						<? print_r($arResult['PDF_LIST']['ITEMS']) ?>
+
 						<?//print_r($skuProperty);?>
 					</div>
 				</div>
