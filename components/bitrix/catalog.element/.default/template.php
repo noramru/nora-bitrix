@@ -815,10 +815,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						</div>
 					</div>
 					<div class="col-sm-12">
-						<?//$arResult['PDF_LIST']['ITEMS']?>
-						<? print_r($arResult['PDF_LIST']['ITEMS']) ?>
-
-						<?//print_r($skuProperty);?>
+						<?=$arResult['PDF_LIST']['ITEMS']?>
 					</div>
 				</div>
 			</div>

@@ -334,6 +334,8 @@ h6.bx-title {}
 h1.bx-title {
 	margin-top: 0;
 	padding-bottom: 10px;
+	font-size: 1.2vw;
+	color: #000F4D;
 }
 h2.bx-title {font-size: 25px}
 h3.bx-title {}
@@ -827,5 +829,7 @@ a.bxd-block:hover {}
 .blocks_4 div div div a {
 	color: #f37021;
 }
-.fa.fa-file-pdf-o.size {font-size: 1vw;}
+.fa.fa-file-pdf-o.size {font-size: 1vw; color: #f37021;}
 .pdf_listing {list-style: none;padding-left: 20px;}
+.pdf_listing li a {color: #f37021;}
+.pdf_listing li {margin-bottom: 10px;}

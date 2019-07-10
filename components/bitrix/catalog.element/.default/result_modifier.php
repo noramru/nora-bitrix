@@ -12,8 +12,9 @@ $arParams = $component->applyTemplateModifications();
 	Выводим PDF для скачивания.
 	Надо ещё отметить в свойствах поля "Выводить поле для описания значения" и будет брать название из названия в библиотеке
  */
-$is_list = count($arResult['PROPERTIES']['PDF']['VALUE'] );
-if ( $is_list > 0 ) { // Проверяем на наличие в PDF у карточки.
+$is_list = count( $arResult['PROPERTIES']['PDF']['VALUE'] );
+
+if ( is_array( $arResult['PROPERTIES']['PDF']['VALUE'] ) ) { // Проверяем на наличие в PDF у карточки.
 	
 	$arResult['PDF_LIST']['TITLE'] = "Файлы для скачивания:"; // Заголовок  и размер пока тут. Потом в параметры засунуть.
 	$h = 'h5'; // Тип заголовка

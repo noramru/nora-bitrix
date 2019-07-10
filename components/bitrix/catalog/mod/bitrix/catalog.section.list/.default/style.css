@@ -160,8 +160,8 @@
 	float: left;
 	box-sizing: border-box;
 	margin-bottom: 20px;
-	padding: 0 10px;
-	width: 12.5%;
+	padding: 0px;
+	width: 25%;
 	list-style: none;
 	text-align: center;
 }
@@ -175,8 +175,8 @@
 	display: block;
 	overflow: hidden;
 	margin: 0 auto;
-	width: 78px;
-	height: 78px;
+	width: 100%;
+	height: 150px;
 	border: 1px solid #ccc;
 	border-radius: 2px;
 	background-color: #fff;
@@ -184,6 +184,7 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	-webkit-background-size: contain;
+    background-size: auto;
 }
 
 .bx_catalog_tile .bx_catalog_tile_title {
