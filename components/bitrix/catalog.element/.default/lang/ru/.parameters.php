@@ -122,4 +122,8 @@ $MESS["CP_BCE_TPL_PRODUCT_BLOCK_QUANTITY"] = "Количество";
 $MESS["CP_BCE_TPL_PRODUCT_BLOCK_BUTTONS"] = "Действия";
 $MESS["CP_BCE_TPL_PRODUCT_BLOCK_COMPARE"] = "Сравнение";
 $MESS["CP_BCE_TPL_PRODUCT_BLOCK_QUANTITY_LIMIT"] = "Остаток";
+
+$MESS["MESS_WAR_MESS_TAB"] = "Уведомление (проблема с наличием)";
+$MESS["CP_BCE_TPL_MESS_DESCRIPTION_TAB"] = "Отобразить";
+
 ?>
