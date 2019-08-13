@@ -99,20 +99,23 @@ foreach ($arr_name as $key => $value) {
 		// Вытащить вложенный массив, добавить переменную и засунить обратно.
 		$last_arr[ $key ]  = array( $value['name'] );
 		
-		array_push( $last_arr[ $key ], array() );
-		$arr = $last_arr[ $key ][1];
+		// array_push( $last_arr[ $key ], array() );
+		// $arr = $last_arr[ $key ][1];
 
-		// print_r( $arr );
+		// print_r( $value['name'] );
+		// echo " -> ";
+		// print_r( $value['value'] );
+		// echo "<br>";
 
-		if ( !in_array($x, $arr) ) {
-			$arr[] = $x;
+/*		if ( !in_array($value['name'], $arr) ) {
+			$arr[] = $value['value'];
 			$last_arr[ $key ][1] = $arr;
-			print_r($last_arr[ $key ][1]);
+			// print_r($last_arr[ $key ][1]);
 			// echo $x , "not is<br>";
 		}else{
 			// echo "is<br>";
 		}
-
+*/
 		// echo is_array($last_arr[ $key ]);
 		// print_r($last_arr[ $key ][1]);
 		// print_r($value['value']);
@@ -135,7 +138,7 @@ foreach ($arr_name as $key => $value) {
 // Группировка характеристик по карточкам. Конец.
 
 // print_r( $last_arr[3][1] );
-// print_r( $last_arr );
+print_r( $last_arr );
 
 
 	echo "</pre>";
