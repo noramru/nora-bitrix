@@ -22,11 +22,13 @@ foreach($ids as $value) {
 	$PRODUCT_IBLOCK_ID = 5;
 	$PRODUCT_ID = $value;
 	$db_props = CIBlockElement::GetProperty($PRODUCT_IBLOCK_ID, $PRODUCT_ID, array("sort" => "asc"), Array());
-	    while ($ob = $db_props->GetNext())
+		$VALUES = [];
+		while ($ob = $db_props->GetNext())
 	    {
 				$VALUES[] = $ob['VALUE'];
-	    }
-	$weight[$PRODUCT_ID] = $VALUES[17];// Оно!!
+    	}
+		$weight[$PRODUCT_ID] = $VALUES[17];// Оно!!
+		unset($VALUES);
 
 }
 //print_r($weight);
@@ -39,7 +41,6 @@ if (CModule::IncludeModule("catalog")):
 foreach($weight as $key => $value) {
 	$PRODUCT_ID = $key; // id товара
 
-	//echo 'Код: ', $key ,  ' вес ' . $value , '       ';
 	$arFields = array('WEIGHT' => $value);// зарезервированное количество
 	CCatalogProduct::Update($PRODUCT_ID, $arFields);
 
