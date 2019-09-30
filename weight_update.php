@@ -7,6 +7,7 @@ if (CModule::IncludeModule("iblock")):
 	$arSelect = Array();
 	$arFilter = Array("IBLOCK_ID"=>IntVal(5), "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
 	$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>3281), $arSelect);
+		// "nPageSize" - количество элементов на странице при постраничной навигации, надо проверять или получить количество
 	while($ob = $res->GetNextElement())
 	{
 		$arFields = $ob->GetFields();
